@@ -18,6 +18,8 @@ namespace WebApi.Common
             //
             CreateMap<Genre, GenresViewModel>();
             CreateMap<Genre, GenreDetailViewModel>();
+            //
+            
         }
     }
 }
