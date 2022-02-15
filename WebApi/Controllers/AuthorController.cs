@@ -2,6 +2,7 @@ using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.AuthorOperations.Commands.CreateAuthor;
+using WebApi.Application.AuthorOperations.Commands.UpdateAuthor;
 using WebApi.Application.AuthorOperations.Queries.GetAuthorDetail;
 using WebApi.Application.AuthorOperations.Queries.GetAuthors;
 
@@ -45,8 +46,22 @@ namespace WebApi.Controllers
         {
             CreateAuthorCommand command = new CreateAuthorCommand(_context,_mapper);
             command.Model = newAuthor;
-            
+
             CreateAuthorCommandValidator validator = new CreateAuthorCommandValidator();
+            validator.ValidateAndThrow(command);
+
+            command.Handle();
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateAuthor([FromBody] UpdateAuthorModel updateAuthor,int id)
+        {
+            UpdateAuthorCommand command = new UpdateAuthorCommand(_context,_mapper);
+            command.AuthorId = id;
+            command.Model = updateAuthor;
+
+            UpdateAuthorCommandValidator validator = new UpdateAuthorCommandValidator();
             validator.ValidateAndThrow(command);
 
             command.Handle();
