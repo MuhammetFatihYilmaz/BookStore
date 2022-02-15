@@ -23,7 +23,7 @@ namespace WebApi.Application.AuthorOperations.Commands.UpdateAuthor
                 throw new InvalidOperationException("Güncellenecek yazar bulunamadı.");
 
             author.Name = string.IsNullOrEmpty(Model.Name.Trim()) ? author.Name : Model.Name;
-            author.Surname = string.IsNullOrEmpty(Model.Surname.Trim()) ? author.Name : Model.Name;
+            author.Surname = string.IsNullOrEmpty(Model.Surname.Trim()) ? author.Surname : Model.Surname;
             author.BirthDate = string.IsNullOrEmpty(Model.BirthDate.Date.ToString()) ? author.BirthDate : Model.BirthDate;
 
             _context.SaveChanges();

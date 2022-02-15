@@ -10,7 +10,7 @@ using WebApi.Application.AuthorOperations.Queries.GetAuthors;
 namespace WebApi.Controllers
 {
     [ApiController]
-    [Route("[controllers]")]
+    [Route("[controller]s")]
     public class AuthorController: ControllerBase
     {
         private readonly BookStoreDbContext _context;
