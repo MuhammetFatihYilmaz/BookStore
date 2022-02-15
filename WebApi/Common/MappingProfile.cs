@@ -1,5 +1,6 @@
 using AutoMapper;
 using WebApi.Application.AuthorOperations.Commands.CreateAuthor;
+using WebApi.Application.AuthorOperations.Commands.UpdateAuthor;
 using WebApi.Application.AuthorOperations.Queries.GetAuthorDetail;
 using WebApi.Application.AuthorOperations.Queries.GetAuthors;
 using WebApi.Application.BookOperations.Queries.GetBookDetail;
@@ -25,6 +26,7 @@ namespace WebApi.Common
             CreateMap<Author,AuthorsViewModel>();
             CreateMap<Author,AuthorDetailViewModel>();
             CreateMap<CreateAuthorModel, Author>();
+            //CreateMap<UpdateAuthorModel, Author>();
         }
     }
 }
