@@ -26,7 +26,6 @@ namespace WebApi.Common
             CreateMap<Author,AuthorsViewModel>();
             CreateMap<Author,AuthorDetailViewModel>();
             CreateMap<CreateAuthorModel, Author>();
-            //CreateMap<UpdateAuthorModel, Author>();
         }
     }
 }
