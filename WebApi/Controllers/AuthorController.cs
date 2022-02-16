@@ -77,8 +77,8 @@ namespace WebApi.Controllers
             
             DeleteAuthorCommandValidator validator = new DeleteAuthorCommandValidator();
             validator.ValidateAndThrow(command);
+            
             command.Handle();
-
             return Ok();
         }
     }
