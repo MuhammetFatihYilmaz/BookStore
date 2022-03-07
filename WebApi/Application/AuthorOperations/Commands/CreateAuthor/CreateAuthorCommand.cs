@@ -1,16 +1,17 @@
 using System;
 using System.Linq;
 using AutoMapper;
+using WebApi.DBOperations;
 using WebApi.Entities;
 
 namespace WebApi.Application.AuthorOperations.Commands.CreateAuthor
 {
     public class CreateAuthorCommand
     {
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
         private readonly IMapper _mapper;
         public CreateAuthorModel Model { get; set; }
-        public CreateAuthorCommand(BookStoreDbContext context, IMapper mapper)
+        public CreateAuthorCommand(IBookStoreDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

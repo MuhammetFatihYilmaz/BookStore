@@ -1,16 +1,17 @@
 using System;
 using System.Linq;
 using AutoMapper;
+using WebApi.DBOperations;
 
 namespace WebApi.Application.AuthorOperations.Commands.UpdateAuthor
 {
     public class UpdateAuthorCommand
     {
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
         private readonly IMapper _mapper;
         public int AuthorId { get; set; }
         public UpdateAuthorModel Model { get; set; }
-        public UpdateAuthorCommand(BookStoreDbContext context, IMapper mapper)
+        public UpdateAuthorCommand(IBookStoreDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
