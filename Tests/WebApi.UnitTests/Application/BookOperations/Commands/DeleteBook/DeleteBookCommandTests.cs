@@ -4,11 +4,8 @@ using AutoMapper;
 using FluentAssertions;
 using Tests.TestSetup;
 using WebApi;
-using WebApi.Application.BookOperations.Commands.CreateBook;
 using WebApi.Application.BookOperations.Commands.DeleteBook;
-using WebApi.Entities;
 using Xunit;
-using static WebApi.Application.BookOperations.Commands.CreateBook.CreateBookCommand;
 
 namespace Tests.Application.BookOperations.Commands.DeleteBook
 {
