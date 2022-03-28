@@ -1,14 +1,10 @@
 using System;
-using System.Linq;
 using AutoMapper;
 using FluentAssertions;
 using Tests.TestSetup;
 using WebApi;
-using WebApi.Application.BookOperations.Commands.CreateBook;
 using WebApi.Application.BookOperations.Commands.UpdateBook;
-using WebApi.Entities;
 using Xunit;
-using static WebApi.Application.BookOperations.Commands.CreateBook.CreateBookCommand;
 using static WebApi.Application.BookOperations.Commands.UpdateBook.UpdateBookCommand;
 
 namespace Tests.Application.BookOperations.Commands.UpdateBook
@@ -24,34 +20,6 @@ namespace Tests.Application.BookOperations.Commands.UpdateBook
             _mapper = testFixture.Mapper;
         }
 
-        [Theory]
-        [InlineData("Lord Of The",0,0)]
-        [InlineData("Lord Of The",1,0)]
-        [InlineData("Lord Of The",0,1)]
-        [InlineData("",0,0)]
-        [InlineData("",1,1)]
-        [InlineData("",0,1)]
-        [InlineData("Lor",1,1)]
-        [InlineData("Lord",0,1)]
-        [InlineData("Lord",1,0)]
-        [InlineData(" ",1,1)]
-        public void WhenInvalidInputsAreGiven_Validator_ShouldBeReturnErrors(string title, int genreId , int authorId)
-        {
-            //Arrange
-            UpdateBookCommand command = new UpdateBookCommand(null);
-            command.Model = new UpdateBookModel()
-            {
-                Title = title,
-                GenreId = genreId,
-                AuthorId = authorId
-            };
-            //Act
-            UpdateBookCommandValidator validator = new UpdateBookCommandValidator();
-            var result = validator.Validate(command);
-            //Assert
-            result.Errors.Count.Should().BeGreaterThan(0);
-        }
-
         [Fact]
         public void WhenLessThanFourCharacterInputToTitle_InvalidOperationExeption_ShouldBeReturn()
         {
@@ -62,6 +30,18 @@ namespace Tests.Application.BookOperations.Commands.UpdateBook
             FluentActions
                 .Invoking(()=> command.Handle())
                 .Should().Throw<InvalidOperationException>("Kitap ismi dört karakterden büyük veya eşit olmalıdır. ");
+        }
+
+        [Fact]
+        public void WhenBookGenreIdEqualOrLessThanZero_InvalidOperationExeption_ShouldBeReturn()
+        {
+            //Arrange
+            UpdateBookCommand command = new UpdateBookCommand(_context);
+            command.Model = new UpdateBookModel(){GenreId = -1};
+            //Act & Assert
+            FluentActions
+                .Invoking(()=> command.Handle())
+                .Should().Throw<InvalidOperationException>("Kitabın türü sıfırdan büyük olmalıdır. ");
         }
     }
 
