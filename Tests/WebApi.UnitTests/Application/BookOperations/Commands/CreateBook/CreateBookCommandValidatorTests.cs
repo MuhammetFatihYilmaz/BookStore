@@ -1,10 +1,7 @@
 using System;
-using AutoMapper;
 using FluentAssertions;
 using Tests.TestSetup;
-using WebApi;
 using WebApi.Application.BookOperations.Commands.CreateBook;
-using WebApi.Entities;
 using Xunit;
 using static WebApi.Application.BookOperations.Commands.CreateBook.CreateBookCommand;
 

@@ -1,13 +1,7 @@
-using System;
-using System.Linq;
-using AutoMapper;
 using FluentAssertions;
 using Tests.TestSetup;
-using WebApi;
-using WebApi.Application.BookOperations.Commands.UpdateBook;
 using WebApi.Application.BookOperations.Queries.GetBookDetail;
 using Xunit;
-using static WebApi.Application.BookOperations.Commands.UpdateBook.UpdateBookCommand;
 
 namespace Tests.Application.BookOperations.Queries.GetBookDetail
 {

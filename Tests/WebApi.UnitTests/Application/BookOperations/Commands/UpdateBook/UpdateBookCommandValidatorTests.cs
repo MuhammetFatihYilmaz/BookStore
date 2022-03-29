@@ -1,7 +1,5 @@
-using System;
 using FluentAssertions;
 using Tests.TestSetup;
-using WebApi.Application.BookOperations.Commands.DeleteBook;
 using WebApi.Application.BookOperations.Commands.UpdateBook;
 using Xunit;
 using static WebApi.Application.BookOperations.Commands.UpdateBook.UpdateBookCommand;

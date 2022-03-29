@@ -1,11 +1,8 @@
 using System;
 using System.Linq;
-using AutoMapper;
 using FluentAssertions;
 using Tests.TestSetup;
 using WebApi;
-using WebApi.Application.GenreOperations.Commands.CreateGenre;
-using WebApi.Application.GenreOperations.Commands.DeleteGenre;
 using WebApi.Application.GenreOperations.Commands.UpdateGenre;
 using WebApi.Entities;
 using Xunit;
