@@ -4,7 +4,6 @@ using FluentAssertions;
 using Tests.TestSetup;
 using WebApi;
 using WebApi.Application.AuthorOperations.Commands.CreateAuthor;
-using WebApi.Application.GenreOperations.Commands.CreateGenre;
 using WebApi.Entities;
 using Xunit;
 
