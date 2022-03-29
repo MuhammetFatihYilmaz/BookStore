@@ -25,8 +25,6 @@ namespace Tests.Application.BookOperations.Commands.DeleteBook
             //Arrange
             DeleteBookCommand command = new DeleteBookCommand(_context);
             int testBookId = _context.Books.Count()+1;
-            var book = _context.Books.SingleOrDefault(x=> x.Id == testBookId);
-
             command.BookId = testBookId;
             
             //Act & Assert
