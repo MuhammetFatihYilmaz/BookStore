@@ -38,7 +38,7 @@ namespace Tests.Application.GenreOperations.Commands.UpdateGenre
         {
             //Arrange
             UpdateGenreCommand command = new UpdateGenreCommand(_context);
-            int testBookId = _context.Genres.Count()+1;
+            int testBookId = _context.Genres.Count()+3;
             command.GenreId = testBookId;
             
             //Act & Assert

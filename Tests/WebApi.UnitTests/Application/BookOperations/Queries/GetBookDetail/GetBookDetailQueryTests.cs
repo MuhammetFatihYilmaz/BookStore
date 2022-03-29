@@ -24,13 +24,13 @@ namespace Tests.Application.BookOperations.Queries.GetBookDetail
         {
             //Arrange
             GetBookDetailQuery command = new GetBookDetailQuery(_context,_mapper);
-            int testBookId = _context.Books.Count()+1;
+            int testBookId = _context.Books.Count()+5;
             command.BookId = testBookId;
             
             //Act & Assert
             FluentActions
                 .Invoking(()=> command.Handle())
-                .Should().Throw<InvalidOperationException>().And.Message.Should().Be("Kitap bulunamadı.");
+                .Should().Throw<InvalidOperationException>("Kitap bulunamadı.");
         }
     }
 
