@@ -4,9 +4,7 @@ using AutoMapper;
 using FluentAssertions;
 using Tests.TestSetup;
 using WebApi;
-using WebApi.Application.AuthorOperations.Commands.CreateAuthor;
 using WebApi.Application.AuthorOperations.Commands.UpdateAuthor;
-using WebApi.Entities;
 using Xunit;
 
 namespace Tests.Application.AuthorOperations.Commands.UpdateAuthor
