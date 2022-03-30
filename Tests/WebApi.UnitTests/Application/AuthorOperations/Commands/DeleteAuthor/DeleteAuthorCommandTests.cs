@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using AutoMapper;
 using FluentAssertions;
 using Tests.TestSetup;
 using WebApi;
