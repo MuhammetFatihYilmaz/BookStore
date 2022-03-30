@@ -25,8 +25,8 @@ namespace Tests.Application.GenreOperations.Queries.GetGenreDetail
         {
             //Arrange
             GetGenreDetailQuery command = new GetGenreDetailQuery(_context,_mapper);
-            int testBookId = _context.Genres.Count()+1;
-            command.GenreId = testBookId;
+            int testGenreId = _context.Genres.Count()+1;
+            command.GenreId = testGenreId;
             
             //Act & Assert
             FluentActions

@@ -4,7 +4,6 @@ using AutoMapper;
 using FluentAssertions;
 using Tests.TestSetup;
 using WebApi;
-using WebApi.Application.AuthorOperations.Commands.CreateAuthor;
 using WebApi.Application.AuthorOperations.Commands.DeleteAuthor;
 using WebApi.Entities;
 using Xunit;
@@ -14,11 +13,9 @@ namespace Tests.Application.AuthorOperations.Commands.DeleteAuthor
     public class DeleteAuthorCommandTests: IClassFixture<CommonTestFixture>
     {
         private readonly BookStoreDbContext _context;
-        private readonly IMapper _mapper;
         public DeleteAuthorCommandTests(CommonTestFixture testFixture)
         {
             _context = testFixture.Context;
-            _mapper = testFixture.Mapper;
         }
 
         [Fact]

@@ -21,8 +21,8 @@ namespace Tests.Application.GenreOperations.Commands.DeleteGenre
         {
             //Arrange
             DeleteGenreCommand command = new DeleteGenreCommand(_context);
-            int testBookId = _context.Genres.Count()+1;
-            command.GenreId = testBookId;
+            int testGenreId = _context.Genres.Count()+1;
+            command.GenreId = testGenreId;
             
             //Act & Assert
             FluentActions
@@ -35,9 +35,9 @@ namespace Tests.Application.GenreOperations.Commands.DeleteGenre
         {
             //Arrange
             DeleteGenreCommand command = new DeleteGenreCommand(_context);
-            int testBookId = _context.Books.Count();
+            int testGenreId = _context.Books.Count();
 
-            command.GenreId = testBookId;
+            command.GenreId = testGenreId;
             
             //Act & Assert
             FluentActions
