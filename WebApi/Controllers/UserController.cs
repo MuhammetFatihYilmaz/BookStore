@@ -1,4 +1,5 @@
 using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using WebApi.Application.UserOperations.Commands.CreateToken;
@@ -31,6 +32,10 @@ namespace WebApi.Controllers
         {
             CreateUserCommand command = new CreateUserCommand(_context,_mapper);
             command.Model = newUser;
+
+            CreateUserCommandValidator validator = new CreateUserCommandValidator();
+            validator.ValidateAndThrow(command);
+
             command.Handle();
 
             return Ok();
@@ -41,6 +46,9 @@ namespace WebApi.Controllers
         {
             CreateTokenCommand command = new CreateTokenCommand(_context,_mapper,_configuration);
             command.Model = login;
+
+            CreateTokenCommandValidator validator = new CreateTokenCommandValidator();
+            validator.ValidateAndThrow(command);
 
             var token = command.Handle();
             return token;
